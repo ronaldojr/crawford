@@ -1,0 +1,80 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+    background: #fff;
+    
+}
+
+.card-image {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.card-tags {
+    padding: 5%;
+}
+
+.tag {
+    align-self: flex-start;
+    padding: .25em .75em;
+    border-radius: 1em;
+    font-size: 0.8em;
+}
+
+.tag + .tag {
+    margin-left: .5em;
+}
+
+.tag-blue {
+    background: #2e6aa7;
+    color: #fafafa;
+}
+
+.card-title {
+    padding: 5%;
+    padding-top: 0;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.card-text {
+    padding: 5%;
+    padding-top: 0;
+    font-size: 1.1em;
+}
+
+.card-footer {
+    display: flex;
+    padding: 1rem;
+    margin-top: auto;
+  }
+  
+.user {
+   display: flex;
+   gap: .5rem;
+}
+
+.user-name {
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: 700;
+}
+  
+.user-image {
+    border-radius: 100%;
+    width: 20%;
+}
+
+.user-info {
+    margin-left: 10px;
+}
+  
+.user-info > small {
+    font-size: 1em;
+    color: #666;
+}

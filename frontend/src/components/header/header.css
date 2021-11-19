@@ -1,0 +1,140 @@
+header {
+    background-color: #2e6aa7;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+}
+
+.brand h1 {
+    position: absolute;
+    top: 30px;
+    left: 5%;
+    font-weight: 700;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+#menu-bars {
+    display: block;
+    position: absolute;
+    top: 17px;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 3px solid #fff;
+}
+
+#menu-bars:hover {
+    cursor: pointer;
+}
+
+#menu-bars span {
+    background-color: #fff;
+    -webkit-transition: all 400ms ease-in-out;
+            transition: all 400ms ease-in-out;
+}
+
+#menu-bars .menu-bar {
+    display: block;
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid #fff;
+    top: 10px;
+    left: 5px;
+    width: 70%;
+    height: 1px;
+}
+
+#menu-bars span:nth-child(2) {
+    top: 15px;
+}
+
+#menu-bars span:nth-child(3) {
+    top: 20px;
+} 
+
+
+#menu-bars span.active:nth-child(1) {
+    display: block;
+    position: relative;
+    top: 18px;
+    left: 6px;
+    -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    
+}
+
+#menu-bars span.active:nth-child(2) {
+    display: none;
+    
+}
+
+#menu-bars span.active:nth-child(3) {
+    display: block;
+    position: relative;
+    top: 15px;
+    left: 6px;
+    -webkit-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+
+nav[role=navigation] ul {
+    visibility: hidden;
+    position: relative;
+    opacity: 0;
+    top: 80px;
+    padding-left: 0;
+    clear: both;
+    max-height: 0em;
+    background-color: #2e6aa7;
+    border-top: 1px solid #eee;
+    -webkit-transition: all 250ms ease-in-out;  
+    -moz-transition: all 250ms ease-in-out;
+    -ms-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out;
+}
+
+nav[role=navigation] ul.active {
+    visibility: visible;
+    opacity: 1;
+    max-height: 35em;
+}
+
+nav[role=navigation] ul li {
+    text-align: center;
+    display: block;
+    position: relative;
+    height: 30px;
+    left: 0;
+    padding: 15px;
+    border-bottom: 1px solid #FFF; 
+}
+
+nav[role=navigation] ul li a {
+    color: #FFF;
+    font-weight: 500;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+
+@media only screen and (min-width: 1025px) {
+    nav[role=navigation] ul {
+        z-index: 10;
+        width: 15%;
+        position: absolute;
+        right: 0;
+        border-radius: 0px 0px 0px 30px;
+        border-left: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        box-shadow: -1px 5px 10px rgb(0 0 0 / 0.2);
+    }
+
+    nav[role=navigation] ul li:nth-last-child(1) {
+        border-bottom: 0px;
+    }
+}

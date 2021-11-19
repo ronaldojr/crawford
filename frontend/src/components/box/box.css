@@ -1,0 +1,40 @@
+
+.box {
+    width: 80%;
+    margin: 5%;
+    padding: 5%;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 0.5em;
+    box-shadow: 0 .1rem 1rem rgba(99, 87, 87, 0.1);
+}
+
+.box-header {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.box-cover {
+    margin-bottom: 5%;
+    border-radius: 0.5em;
+}
+
+.box-title {
+    font-size: 1.7em;
+}
+
+.box-date {
+    font-size: small;
+}
+
+.box-header button {
+    margin-top: 5%;
+    width: 100px;
+}
+
+.box-body p {
+    margin-bottom: 10px;
+    line-height: 1.2;
+}

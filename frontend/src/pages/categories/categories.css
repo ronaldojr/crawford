@@ -1,0 +1,12 @@
+.breadcrumb {
+    background-color: #fff;
+    border-radius: 1em;
+    margin-top: 2%;
+    padding: 5%;
+    text-align: center;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    font-weight: 700;
+}
