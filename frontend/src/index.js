@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'react-notifications-component/dist/theme.css'
 import './index.css';
-import App from './App';
+import App from './pages/app/App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

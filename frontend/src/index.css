@@ -189,6 +189,11 @@ table tr td:nth-child(2) {
 
 /* form end  */
 
+
+.notifications-component {
+    margin-top: 70px;
+}
+
 @media only screen and (min-width: 1025px) {
 
     body {

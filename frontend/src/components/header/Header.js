@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {Link} from 'react-router-dom'
 import './header.css'
+import {AppContext} from '../../pages/app/App'
 
 function Header(props) {
+    
+    const [active, setActive] = useState(false);
+    const app = useContext(AppContext)
 
     const regularMenu = [
         <li key='1'><Link to="/login"> Login </Link></li>,
     ]
 
     const loggedInMenu = [
-        <li key='1'><Link to="/"> Stories </Link></li>,
-        <li key='2'><Link to="/"> Categories </Link></li>,
-        <li key='3'><Link to="/"> Users </Link></li>,
-        <li key='4'><Link to="/"> Logout </Link></li>,
+        <li key='1'><Link to="/admin"> Admin </Link></li>,
+        <li key='4'><Link to onClick={logOut}> Logout </Link></li>,
     ]
 
-    const [active, setActive] = useState(false);
+    function logOut() {
+        localStorage.setItem("loggedIn", false)
+        app.setLoggedIn(false)
+    }
 
     function openMenu(e) {
         if (active) 
@@ -25,7 +30,7 @@ function Header(props) {
     }
 
     function createMenu() {
-        if (props.logged_in) {
+        if (app.loggedIn) {
             return loggedInMenu
         } 
         return regularMenu
