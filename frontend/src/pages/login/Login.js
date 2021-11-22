@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from "react";
 import {useNavigate} from 'react-router-dom'
-import axios from '../../api/Axios'
+import {axiosPublic} from '../../api/Axios'
 import Box from '../../components/box/Box'
 import {notification} from '../../components/notification/Notification'
 import {AppContext} from '../../pages/app/App'
@@ -22,7 +22,7 @@ function Login() {
         if (!username || !password) return;
         e.preventDefault()
 
-        axios.post('/token-auth/', {
+        axiosPublic.post('/token-auth/', {
             "username": username,
             "password": password
         }).then(function(response) {

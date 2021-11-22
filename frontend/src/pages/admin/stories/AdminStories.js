@@ -28,15 +28,19 @@ function AdminStories(props) {
 
     useEffect(()=>{
         async function getInitialState() {
-            const storiesRes = await axios.get(url)
-            const categoriesRes =  await axios.get('/admin-categories/')
-            const authorsRes =  await axios.get('/admin-users/list/select/')
-            setStories(storiesRes.data.results)
-            setCategories(categoriesRes.data.results)
-            setAuthors(authorsRes.data.results)
-            setNext(storiesRes.data.next)
-            setPrevious(storiesRes.data.previous)
-            setEditIsOpen(false)
+            try {
+                const storiesRes = await axios.get(url)
+                const categoriesRes =  await axios.get('/admin-categories/')
+                const authorsRes =  await axios.get('/admin-users/list/select/')
+                setStories(storiesRes.data.results)
+                setCategories(categoriesRes.data.results)
+                setAuthors(authorsRes.data.results)
+                setNext(storiesRes.data.next)
+                setPrevious(storiesRes.data.previous)
+                setEditIsOpen(false)
+            } catch (error) {
+                console.log(error.response)
+            }
         }
         getInitialState();
     }, [url])

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import axios from '../../../api/Axios'
+import axiosInstance from '../../../api/Axios'
 import './admincategories.css'
 import AuthMiddleware from '../../../core/AuthMiddleware'
 import AdminMenu from '../../../components/adminMenu/AdminMenu'
@@ -25,11 +25,16 @@ function AdminCategories(props) {
 
     useEffect(()=>{
         async function getInitialState() {
-            const response = await axios.get(url) 
-            setCategories(response.data.results)
-            setNext(response.data.next)
-            setPrevious(response.data.previous)
-            setEditIsOpen(false)
+            try {
+                const response = await axiosInstance.get(url)
+                setCategories(response.data.results)
+                setNext(response.data.next)
+                setPrevious(response.data.previous)
+                setEditIsOpen(false)
+            } catch (error) {
+                console.log(error.response)
+            }
+            
         }
         getInitialState();
     }, [url])
@@ -71,7 +76,7 @@ function AdminCategories(props) {
     }
 
     async function apiDelete(id) {
-        let response = await axios.delete(`/admin-categories/${id}`)
+        let response = await axiosInstance.delete(`/admin-categories/${id}`)
         if (response.status === 204) updateList()
         notification.info("Success", "Success on delete category")
 
@@ -81,7 +86,7 @@ function AdminCategories(props) {
 
         if (category.id !== '') {
             try {
-                let response = await axios.put(`/admin-categories/${category.id}/`, category)
+                let response = await axiosInstance.put(`/admin-categories/${category.id}/`, category)
                 if (response.status === 200) updateList()
                 notification.info("Success", "Success on update category")
             } catch (error) {
@@ -89,7 +94,7 @@ function AdminCategories(props) {
             }
         } else {
             try {
-                let response = await axios.post(`/admin-categories/`, category)
+                let response = await axiosInstance.post(`/admin-categories/`, category)
                 if (response.status === 201) updateList()
                 notification.info("Success", "Success on create category")
             } catch (error) {
@@ -100,7 +105,7 @@ function AdminCategories(props) {
     }
 
     async function updateList(category) {
-        const response = await axios.get(url) 
+        const response = await axiosInstance.get(url) 
         setCategories(response.data.results)
         setNext(response.data.next)
         setPrevious(response.data.previous)

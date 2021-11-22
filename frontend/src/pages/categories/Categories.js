@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom'
-import axios from '../../api/Axios';
+import {axiosPublic} from '../../api/Axios';
 import '../home/home.css';
 import './categories.css';
 import Card from '../../components/card/Card';
@@ -18,7 +18,7 @@ function Categories(props) {
 
     useEffect(()=>{
         async function fetchData() {
-            let response = await axios.get(url);
+            let response = await axiosPublic.get(url);
             setCards(response.data.results)
             setNext(response.data.next)
             setPrevious(response.data.previous)

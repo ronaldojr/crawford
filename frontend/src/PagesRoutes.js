@@ -20,7 +20,9 @@ function PagesRoutes() {
                 <Route exact path="/dashboard" element={<Dashboard />} />
                 <Route exact path="/about" element={<About />} />
                 <Route exact path="/admin" element={<Admin />} />
-                <Route exact path="/storie" element={<Storie />} />
+                <Route exact path="/storie" element={<Storie />}>
+                    <Route exact path=":id" element={<Storie />} />
+                </Route>
                 <Route exact path="/admin/stories" element={<AdminStories />} />
                 <Route exact path="/admin/categories" element={<AdminCategories />} />
                 <Route exact path="/admin/users" element={<AdminUsers />} />

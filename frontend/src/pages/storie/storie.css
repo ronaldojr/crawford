@@ -1,0 +1,14 @@
+.breadcrumb {
+    background-color: #fff;
+    border-radius: 1em;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 5%;
+    text-align: center;
+}
+
+.text-body {
+    white-space: "pre-line";
+}
+

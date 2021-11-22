@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
-import axios from '../../api/Axios';
+import {axiosPublic} from '../../api/Axios';
 import './sidebar.css';
 
 function Sidebar(props) {
@@ -9,7 +9,7 @@ function Sidebar(props) {
 
     useEffect(() => {
         async function fetchData() {
-            let response = await axios.get('/categories/');
+            let response = await axiosPublic.get('/categories/');
             setCategories(response.data.results)
         }
         fetchData();

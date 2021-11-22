@@ -6,7 +6,14 @@ class StoriesListSerializer(serializers.HyperlinkedModelSerializer):
     author =  serializers.StringRelatedField()
     class Meta:
         model = Storie
-        fields = ['cover', 'title', 'intro', 'categorie', 'author', 'created_at' ]
+        fields = ['id', 'cover', 'title', 'intro', 'categorie', 'author', 'created_at' ]
+
+class StorySingleSerializer(serializers.ModelSerializer):
+    categorie =  serializers.StringRelatedField()
+    author =  serializers.StringRelatedField()
+    class Meta:
+        model = Storie
+        fields = '__all__'
 
 
 class CategoriesSerializer(serializers.ModelSerializer):

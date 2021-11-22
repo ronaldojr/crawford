@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import axios from '../../api/Axios';
+import {axiosPublic} from '../../api/Axios';
 import './home.css';
 import Card from '../../components/card/Card';
 import Pagination from '../../components/pagination/Pagination';
@@ -15,7 +15,7 @@ function Home(props) {
 
     useEffect(()=>{
         async function fetchData() {
-            let response = await axios.get(url);
+            let response = await axiosPublic.get(url);
             setCards(response.data.results)
             setNext(response.data.next)
             setPrevious(response.data.previous)
