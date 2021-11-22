@@ -1,10 +1,10 @@
-import re, os
+import os
 from PIL import Image, ImageDraw, ImageOps, ImageFont
 from django.http.response import HttpResponse
 from rest_framework import viewsets
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Categorie, Storie, AccessLogger
+from .models import Categorie, Storie, AccessLogger, ImageGenerator
 from .serializers import StoriesListSerializer, CategoriesSerializer
 from .serializers import AdminCategoriesSerliazer, AdminStoriesSerliazer, StorySingleSerializer
 from rest_framework import permissions, response
@@ -17,7 +17,7 @@ import textwrap
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def download(request):
-    path_font = os.path.join(BASE_DIR, 'stories/arial.ttf')
+    response = HttpResponse(content_type = "image/png")
     pk = request.query_params.get('story')
     story = Storie.objects.get(pk=pk)
     access_logger = AccessLogger()
@@ -27,42 +27,9 @@ def download(request):
         access_logger.type = 'D'
         access_logger.save()
 
-        arial_regular = ImageFont.truetype(path_font, 12)
-        arial_title = ImageFont.truetype(path_font, 15)
-
-        author_name = story.author.first_name + " " + story.author.last_name
-
-        list_text = story.storie.split('\r\n\r\n')
-        text = textwrap.wrap(story.intro, width=80)
-        text += ['<#break#>']
-
-        for p in list_text:
-            text += textwrap.wrap(p, width=80)
-            text += ['<#break#>']
-
-        size = (500,(len(text) * 18) + 80)             
-        image = Image.new('RGBA', size, '#ffffff') 
-        draw = ImageDraw.Draw(image)
-        h = 30
-        draw.text((30, h), story.title, font=arial_title, fill='black') 
-        h += 30  
-
-        for line in text:
-            text_pos = (30,h)
-            if line.find("<#break#>") != -1:
-                draw.text(text_pos, " ", fill='black')
-                h += 15
-            else:
-                draw.text(text_pos, line, font=arial_regular, fill='black')
-
-            h += 15
-
-        draw.text((30, h+20), "Author: " +  author_name, font=arial_regular, fill='black')
-        del draw 
-        response = HttpResponse(content_type = "image/png")
-        bordered = ImageOps.expand(image, border=10, fill='#eee')
-        bordered.save(response, 'PNG')
-
+        image_generator = ImageGenerator(story)
+        image_generator.set_up()
+        image_generator.wrap_response(response)
         return  response
 
 
