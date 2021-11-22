@@ -4,10 +4,10 @@ from django.http.response import HttpResponse
 from rest_framework import viewsets
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Categorie, Storie
+from .models import Categorie, Storie, AccessLogger
 from .serializers import StoriesListSerializer, CategoriesSerializer
 from .serializers import AdminCategoriesSerliazer, AdminStoriesSerliazer, StorySingleSerializer
-from rest_framework import permissions
+from rest_framework import permissions, response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from backend.settings import BASE_DIR
@@ -17,15 +17,19 @@ import textwrap
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def download(request):
+    path_font = os.path.join(BASE_DIR, 'stories/arial.ttf')
     pk = request.query_params.get('story')
     story = Storie.objects.get(pk=pk)
+    access_logger = AccessLogger()
 
     if (story):
-            
-        path_font = os.path.join(BASE_DIR, 'stories/arial.ttf')
+        access_logger.storie = story
+        access_logger.type = 'D'
+        access_logger.save()
+
         arial_regular = ImageFont.truetype(path_font, 12)
         arial_title = ImageFont.truetype(path_font, 15)
-        
+
         author_name = story.author.first_name + " " + story.author.last_name
 
         list_text = story.storie.split('\r\n\r\n')
@@ -62,6 +66,17 @@ def download(request):
         return  response
 
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def polulatiry(request):
+    pk = request.query_params.get('story')    
+    downloads = AccessLogger.objects.filter(storie__pk=pk, type="D").count()
+    views = AccessLogger.objects.filter(storie__pk=pk, type="v").count()
+    return response.Response({"downloads": downloads, "views": views})
+
+
+
+
 class StoriesListViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
     queryset = Storie.objects.all().order_by('-id')
@@ -75,6 +90,16 @@ class StorySingleViewSet(viewsets.ModelViewSet):
     queryset = Storie.objects.all()
     serializer_class = StorySingleSerializer
     http_method_names = ['get']
+
+    def retrieve(self, request, *args, **kwargs):
+        story = Storie.objects.get(pk=kwargs['pk'])
+        access_logger = AccessLogger()
+        access_logger.storie = story
+        access_logger.type = 'v'
+        access_logger.save()
+
+        return viewsets.ModelViewSet.retrieve(self, request, *args, **kwargs)
+
 
 
 class CategoriesViewSet(viewsets.ModelViewSet):
