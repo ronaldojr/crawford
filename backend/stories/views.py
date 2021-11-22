@@ -77,8 +77,7 @@ def polulatiry(request):
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def dashboard(request):
-    pk = request.query_params.get('story')    
+def dashboard(request):   
     downloads = AccessLogger.objects.filter(type="D").count()
     views = AccessLogger.objects.filter(type="v").count()
     return response.Response({

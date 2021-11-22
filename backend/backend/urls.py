@@ -7,8 +7,9 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 from backend.settings import MEDIA_ROOT, MEDIA_URL
-from stories.views import StoriesListViewSet, CategoriesViewSet, StorySingleViewSet
-from stories.views import AdminCategoriesViewSet, AdminStoriesViewSet, download, polulatiry
+from stories.views import StoriesListViewSet, CategoriesViewSet, StorySingleViewSet, dashboard
+from stories.views import AdminCategoriesViewSet, AdminStoriesViewSet
+from stories.views import download, polulatiry, dashboard
 from users.views import UsersListFormViewSet
 
 router = routers.DefaultRouter()
@@ -26,9 +27,8 @@ urlpatterns = [
     path('token-auth/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token-refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('download/',download, name="download" ),
-    path('popularity/',polulatiry, name="popularity")
-    # path('users/', include('users.urls')),
-
+    path('popularity/',polulatiry, name="popularity"),
+    path('dashboard/',dashboard, name="dashboard"),
 ]
 
 urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)

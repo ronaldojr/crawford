@@ -6,7 +6,6 @@ import './storie.css'
 import Box from '../../components/box/Box'
 import author from '../../assets/img/author.png'
 import Moment from 'moment'
-import Sidebar from '../../components/sidebar/Sidebar'
 import Chart from "react-google-charts";
 
 
