@@ -33,11 +33,11 @@ function Home(props) {
     }
 
     return(
-        <div>
+        <div className="wrap-content"> 
             <div className="wrap-cards">
                 {createCards(cards)}
+                <Pagination callback={setUrl} next={next} previous={previous}/>
             </div>
-            <Pagination callback={setUrl} next={next} previous={previous}/>
             <Sidebar callback={setUrl} name="Categories" />
         </div>
         

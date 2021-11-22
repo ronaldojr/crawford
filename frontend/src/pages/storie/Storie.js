@@ -70,43 +70,47 @@ function Storie(props) {
 
     return(
         <div className="wrap">
-            <div className="breadcrumb"><Link to="/">Home</Link></div>
-            <Box title={story.title}>
-                <div className="group">
-                    <button onClick={() => downloadImage()} className="btn btn-default btn-small btn-download">Download</button> 
-                </div>    
-                {renderCover()}
-                <p>{story.intro}</p>
-                {creteLinesStorie()}
-                <div className="box-footer">
-                    <div className="user">
-                        <img className="user-image" src={author} alt="Author avatar" />
-                        <div className="user-info">
-                            <div className="user-name">{story.author}</div>
-                            <small>{Moment(story.created_at).format('YYYY/MM/DD')}</small>
-                        </div>
-                    </div>
-                </div>  
-            </Box>
-            <Box title="Popularity">
-                <Chart
-                    width={'100%'}
-                    height={'auto'}
-                    chartType="ColumnChart"
-                    loader={<div>Loading Chart</div>}
-                    data={[
-                      ['Access', 'Total'],
-                      ['Downloads', popularity.downloads],
-                      ['Views', popularity.views],
-                    ]}
-                    options={{
-                      legend: 'none',
-                      title: 'Story Popularity',
-                    }}
-                    rootProps={{ 'data-testid': '1' }}
-                ></Chart>
-            </Box>
-            <Sidebar name="Categories" />
+            <div className="wrap-left">
+                <div className="breadcrumb"><Link to="/">Home</Link></div>
+                <div className="">
+                    <Box title={story.title}>
+                        <div className="group">
+                            <button onClick={() => downloadImage()} className="btn btn-default btn-small btn-download">Download</button> 
+                        </div>    
+                        {renderCover()}
+                        <p>{story.intro}</p>
+                        {creteLinesStorie()}
+                        <div className="box-footer">
+                            <div className="user">
+                                <img className="user-image" src={author} alt="Author avatar" />
+                                <div className="user-info">
+                                    <div className="user-name">{story.author}</div>
+                                    <small>{Moment(story.created_at).format('YYYY/MM/DD')}</small>
+                                </div>
+                            </div>
+                        </div>  
+                    </Box>
+                    <Box title="Popularity">
+                        <Chart
+                            width={'100%'}
+                            height={'auto'}
+                            chartType="ColumnChart"
+                            loader={<div>Loading Chart</div>}
+                            data={[
+                            ['Access', 'Total'],
+                            ['Downloads', popularity.downloads],
+                            ['Views', popularity.views],
+                            ]}
+                            options={{
+                            legend: 'none',
+                            title: 'Story Popularity',
+                            }}
+                            rootProps={{ 'data-testid': '1' }}
+                        ></Chart>
+                    </Box>
+                </div>
+            </div>
+            {/* <Sidebar name="Categories" /> */}
         </div>
     )
 }

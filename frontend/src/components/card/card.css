@@ -106,3 +106,59 @@
     font-size: 1em;
     color: #666;
 }
+
+@media only screen and (min-width: 1024px) {
+    /* cards start */
+    .wrap-cards {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 70%;
+    }
+
+    .card {
+        /* width: clamp(14rem, calc(14rem + 2vw), 14rem); */
+        flex: 0 0 30%;
+        min-height: 200px;
+        
+    }
+
+    .card-intro {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        min-height: 160px;
+    }
+
+    .card-image {
+        height: 150px;
+        width: 100%;
+    }
+
+    .card-header{
+        height: 150px;
+        width: 100%;
+    }
+
+    .tag {
+        font-size: 0.8em;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .user-image {
+        width:50px;
+        height: 50px;
+    }
+    
+    .user-info {
+        
+        font-size: 1em;
+    }
+    
+    /* cards end */
+}
+

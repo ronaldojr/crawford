@@ -12,3 +12,24 @@
     white-space: "pre-line";
 }
 
+
+@media only screen and (min-width: 1024px) {
+
+    .wrap {
+        display: flex;
+        flex-direction: row;
+        justify-items: flex-start;
+        padding: 5%;
+        padding-top: 100px;
+        gap: 30px;
+    }
+
+    .wrap-left{
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .breadcrumb {
+        width: 86%;
+    }
+}

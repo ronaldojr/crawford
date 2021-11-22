@@ -123,10 +123,12 @@ h1 {
     padding-bottom: 5px;
     border: 0;
     color: #fff;
+    cursor: pointer;
 }
 
 .btn-search, .btn-clear {
     width: 49%;
+    cursor: pointer;
 }
 .btn-search {
     margin-right: 2%;
@@ -247,42 +249,7 @@ table tr td:nth-child(2) {
     }
     /* content end */
 
-    /* cards start */
-    .wrap-cards {
-        width: 80%;
-    }
-
-
-    .card {
-        display: flex;
-        flex-direction: column;
-        width: 30%;
-        overflow: hidden;
-        box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
-        border-radius: 1em;
-        background: #fff;
-        
-    }
-
-    .tag {
-        font-size: 0.8em;
-    }
-
-    .card-title {
-        font-size: 1.2em;
-    }
-
-    .user-image {
-        width:50px;
-        height: 50px;
-    }
     
-    .user-info {
-        
-        font-size: 0.6em;
-    }
-    
-    /* cards end */
 
 
     /* sidebar start */

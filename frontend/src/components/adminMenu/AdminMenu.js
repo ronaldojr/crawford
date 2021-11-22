@@ -10,7 +10,6 @@ function AdminMenu(props) {
             <li><Link to="/admin">Dashboard</Link></li>
             <li><Link to="/admin/stories">Stories</Link></li>
             <li><Link to="/admin/categories">Categories</Link></li>
-            <li><Link to="/admin/users">Users</Link></li>
         </Dropdown>
     )
 }

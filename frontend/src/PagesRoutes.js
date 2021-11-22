@@ -25,7 +25,6 @@ function PagesRoutes() {
                 </Route>
                 <Route exact path="/admin/stories" element={<AdminStories />} />
                 <Route exact path="/admin/categories" element={<AdminCategories />} />
-                <Route exact path="/admin/users" element={<AdminUsers />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/categories" element={<Categories />}>
                     <Route exact path=":categorieId" element={<Categories />} >

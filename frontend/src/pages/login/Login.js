@@ -1,4 +1,5 @@
 import React, {useState, useContext, useEffect} from "react";
+import './login.css'
 import {useNavigate} from 'react-router-dom'
 import {axiosPublic} from '../../api/Axios'
 import Box from '../../components/box/Box'
@@ -55,39 +56,41 @@ function Login() {
 
     
     return (
-        <div className="wrap wrap-center">
-            <Box title=''>
-                <form>
-                    <div className='group'>
-                        <label className='input-label' >Username</label>
-                        <input 
-                            name='username' 
-                            className='input-text' 
-                            type='text' value={username} 
-                            onChange={change} 
-                            required
-                        />
-                    </div>
-                    <div className='group'>
-                        <label className='input-label' >Password</label>
-                        <input 
-                            name='password' 
-                            className='input-text' 
-                            type='password' 
-                            value={password} 
-                            onChange={change} 
-                            required
-                        />
-                    </div>
-                    <div className='group'>
-                        <button 
-                            onClick={submitLoginForm} 
-                            className='btn btn-default btn-wide'>
-                                Login
-                        </button>
-                    </div>
-                </form>
-            </Box>
+        <div className='wrap wrap-center'>
+            <div className="wrap-login">
+                <Box title=''>
+                    <form>
+                        <div className='group'>
+                            <label className='input-label' >Username</label>
+                            <input 
+                                name='username' 
+                                className='input-text' 
+                                type='text' value={username} 
+                                onChange={change} 
+                                required
+                            />
+                        </div>
+                        <div className='group'>
+                            <label className='input-label' >Password</label>
+                            <input 
+                                name='password' 
+                                className='input-text' 
+                                type='password' 
+                                value={password} 
+                                onChange={change} 
+                                required
+                            />
+                        </div>
+                        <div className='group'>
+                            <button 
+                                onClick={submitLoginForm} 
+                                className='btn btn-default btn-wide'>
+                                    Login
+                            </button>
+                        </div>
+                    </form>
+                </Box>
+            </div>
         </div>
     );
 }

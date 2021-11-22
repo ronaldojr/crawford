@@ -26,7 +26,9 @@ function Card(props) {
 
     function createCoverHeader() {
         if (props.card.cover) {
-            return <img className="card-image" src={props.card.cover} alt="01" />
+            return <img className="card-image" src={props.card.cover} alt="cover card" />
+        } else {
+            return <img className="card-image" src={process.env.REACT_APP_BACKEND_URL+'/media/covers/default.jpg'} alt="cover card" />
         }
     }
     return (
@@ -43,9 +45,9 @@ function Card(props) {
                         <Link to={`/storie/${props.card.id}`}>{props.card.title}</Link>
                     </div>
                     <div className="card-text">
-                        <p>
-                        <Link to={`/storie/${props.card.id}`}>{props.card.intro}</Link>
-                        </p>
+                        <div className="card-intro">
+                            <Link to={`/storie/${props.card.id}`}>{props.card.intro}</Link>
+                        </div>
                         <br />
                         <div className="card-btns">
                             <Link to={`/storie/${props.card.id}`}>

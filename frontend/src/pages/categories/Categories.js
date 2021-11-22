@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom'
 import {axiosPublic} from '../../api/Axios';
-import '../home/home.css';
 import './categories.css';
+import '../home/home.css';
 import Card from '../../components/card/Card';
 import Pagination from '../../components/pagination/Pagination';
 import Sidebar from '../../components/sidebar/Sidebar';
@@ -35,12 +35,12 @@ function Categories(props) {
     }
 
     return(
-        <div>
+        <div  className="wrap-content">
             <div className="wrap-cards">
-                <p className="breadcrumb"><Link to="/" >Home</Link> {` >> Categories >> ${params.categorieName}`}</p>
+                <div className="breadcrumb"><Link to="/" >Home</Link> {` >> Categories >> ${params.categorieName}`}</div>
                 {createCards(cards)}
+                <Pagination callback={setUrl} next={next} previous={previous}/>
             </div>
-            <Pagination callback={setUrl} next={next} previous={previous}/>
             <Sidebar callback={setUrl} name="Categories" />
         </div>
         
