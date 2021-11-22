@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../api/Axios';
 import './sidebar.css';
 
 function Sidebar(props) {
@@ -9,7 +9,7 @@ function Sidebar(props) {
 
     useEffect(() => {
         async function fetchData() {
-            let response = await axios.get(process.env.REACT_APP_BACKEND_URL+'/categories/');
+            let response = await axios.get('/categories/');
             setCategories(response.data.results)
         }
         fetchData();
@@ -17,7 +17,7 @@ function Sidebar(props) {
 
     function changeUrlState(categorie) {
         if (props.callback) {
-            props.callback(process.env.REACT_APP_BACKEND_URL+'/stories/?categorie='+categorie.id)
+            props.callback('/stories/?categorie='+categorie.id)
             window.scrollTo({ top: 0, left: 0})
         } 
     }

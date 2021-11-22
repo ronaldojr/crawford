@@ -27,8 +27,8 @@ function Login() {
             "password": password
         }).then(function(response) {
             localStorage.setItem("loggedIn", true)
-            localStorage.setItem('token', response.data.token)
-            localStorage.setItem('username', response.data.token)
+            localStorage.setItem('access', response.data.access)
+            localStorage.setItem('refresh', response.data.refresh)
             notification.info("Welcome", "You are logged in")
             app.setLoggedIn(true)
         }).catch(function(error){

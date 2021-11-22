@@ -23,11 +23,13 @@
     border-radius:  0px 10px 10px 0px;
 }
 
-.pagination li a {
+
+.pagination li a, .pagination li .btn-pagination-table {
     text-decoration: none;
     font-weight: 600;
     font-size: 1.3em;
     color: #2e6aa7;
+    cursor: pointer;
 }
 
 .pagination li span {
@@ -36,7 +38,7 @@
     color: #eee;
 }
 
-.pagination li.active,  .pagination li.active a{
+.pagination li.active,  .pagination li.active a, .pagination li.active .btn-pagination-table {
     background-color: #2e6aa7;
     color: #fff;
 }

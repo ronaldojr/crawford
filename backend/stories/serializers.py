@@ -18,3 +18,15 @@ class CategoriesSerializer(serializers.ModelSerializer):
         model = Storie
         fields = ['id', 'name', 'total']
 
+
+class AdminCategoriesSerliazer(serializers.ModelSerializer):
+    class Meta:
+        model = Categorie
+        fields = '__all__'
+
+
+class AdminStoriesSerliazer(serializers.ModelSerializer):
+    class Meta:
+        model = Storie
+        fields = '__all__'
+

@@ -53,6 +53,12 @@ h1 {
 /* reset end */
 
 
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
 .wrap {
     min-height: calc(100vh - 180px);
     padding-top: 90px;
@@ -65,7 +71,6 @@ h1 {
     justify-content: center;
 }
 
-
 /* buttons start */
 
 .btn {
@@ -75,6 +80,7 @@ h1 {
     border: 0;
     border-radius: 0.5em;
     box-shadow: 0 .3rem 1rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .btn:active {
@@ -110,6 +116,37 @@ h1 {
     font-size: small;
 }
 
+.btn-delete, .btn-edit {
+    font-size: 0.8em;
+    width: 27px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 0;
+    color: #fff;
+}
+
+.btn-search, .btn-clear {
+    width: 49%;
+}
+.btn-search {
+    margin-right: 2%;
+}
+
+.btn-delete {
+    background-color: #bc3737;
+    border-radius: 0 8px 8px 0;
+}
+
+.btn-edit {
+    background-color: #1e7295;
+    border-radius: 8px 0 0 8px;
+}
+
+.btn-novo {
+    float: right;
+}
+
+
 table {
     width: 100%;
 }
@@ -139,6 +176,7 @@ table tr td:nth-child(2) {
     width: 20px;
     height: auto;
 }
+
 
 /* buttons end */
 

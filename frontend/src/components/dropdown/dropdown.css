@@ -1,0 +1,37 @@
+.btn-dropdown {
+    box-shadow: 0 .1rem 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-ul {
+    width: fit-content;
+    position: absolute;
+    padding: 10px;
+    background-color: #eee;
+    margin-top: 5px;
+    border-radius: 10px;
+    box-shadow: 0 .3rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.dropdown-ul li:nth-last-child(1) {
+    border-bottom: 0;
+}
+
+.dropdown-ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+div[role='menu'] {
+    visibility: hidden;
+}
+
+div[role='menu'].visible {
+    visibility: visible;
+}
+

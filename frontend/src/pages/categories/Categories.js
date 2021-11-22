@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom'
-import axios from 'axios';
+import axios from '../../api/Axios';
 import '../home/home.css';
 import './categories.css';
 import Card from '../../components/card/Card';

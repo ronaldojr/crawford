@@ -18,7 +18,9 @@ function Header(props) {
     ]
 
     function logOut() {
-        localStorage.setItem("loggedIn", false)
+        localStorage.removeItem("loggedIn")
+        localStorage.removeItem("access")
+        localStorage.removeItem("refresh")
         app.setLoggedIn(false)
     }
 

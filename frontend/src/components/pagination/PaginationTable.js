@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import './pagination.css'
 
 function Pagination(props) {
@@ -7,7 +6,7 @@ function Pagination(props) {
 
     function getLink(url, label) {
         if (url) {
-            return <Link onClick={() => props.callback(url) } to="/"> {label} </Link>
+            return <span className="btn-pagination-table" onClick={() => props.callback(url)} > {label} </span>
         } else {
             return <span>{label}</span>
         }

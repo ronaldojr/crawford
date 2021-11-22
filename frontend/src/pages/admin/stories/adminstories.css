@@ -1,0 +1,7 @@
+textarea[name=intro] {
+    min-height: 150px;
+}
+
+textarea[name=storie] {
+    min-height: 400px;
+}

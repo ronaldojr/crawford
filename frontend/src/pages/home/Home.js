@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import axios from '../../api/Axios';
 import './home.css';
 import Card from '../../components/card/Card';
 import Pagination from '../../components/pagination/Pagination';
@@ -9,7 +9,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 function Home(props) {
 
     const [cards, setCards] = useState([])
-    const [url, setUrl] = useState(process.env.REACT_APP_BACKEND_URL+'/stories/')
+    const [url, setUrl] = useState('/stories/')
     const [next, setNext] = useState('next')
     const [previous, setPrevious] = useState('previous')
 

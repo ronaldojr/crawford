@@ -4,6 +4,9 @@ import Home from './pages/home/Home'
 import Dashboard from './pages/dashboard/Dashboard'
 import About from './pages/about/About'
 import Admin from './pages/admin/Admin'
+import AdminStories from './pages/admin/stories/AdminStories'
+import AdminCategories from './pages/admin/categories/AdminCategories'
+import AdminUsers from './pages/admin/users/AdminUsers'
 import Storie from './pages/storie/Storie'
 import Login from './pages/login/Login'
 import Categories from './pages/categories/Categories'
@@ -18,6 +21,9 @@ function PagesRoutes() {
                 <Route exact path="/about" element={<About />} />
                 <Route exact path="/admin" element={<Admin />} />
                 <Route exact path="/storie" element={<Storie />} />
+                <Route exact path="/admin/stories" element={<AdminStories />} />
+                <Route exact path="/admin/categories" element={<AdminCategories />} />
+                <Route exact path="/admin/users" element={<AdminUsers />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/categories" element={<Categories />}>
                     <Route exact path=":categorieId" element={<Categories />} >

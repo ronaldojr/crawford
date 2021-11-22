@@ -1,0 +1,14 @@
+.is-hidden {
+    display: none;
+}
+
+h2 {
+    margin-top: 50px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #5e5e5e;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
