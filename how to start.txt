@@ -1,0 +1,94 @@
++++++++++++++      warning      ++++++++++++++++++++++
+
+this project was tested only in Linux environments
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TECHNOLOGY
+
++ BACKEND
+
+PYTHON 3.8 >=
+
+DJANGO / DJANGO REST FRAMEWORK
+
++ FRONTEND
+
+REACT (SINGLE PAGE APPLICATION)
+
+
+Before start:
+
++ the database used was a simple SQLite file called "db.sqlite3" you can find
+it on the root backend folder (you can see the structure with dbeaver or any GUI of your choice)
+
++ It has just one user, the user management system is planned to the version 2 ok?
+but you can use the admin interface with the admin user, follow the credentials:
+
+user: admin
+password: admin
+
++ on the main page menu you can find the link to access the login page and
+after logging in, the menu will be changed to show the reserved area
+
++ let me know if you need any help, please
+
+
+
+INSTALL AND RUN THE BACKEND API
+
+1 - INSTALL DEPENDENCIES
+
+run the following command in the backend root folder
+
+$ pip install -r requirements.txt
+
+
+2 - RUN THE LOCAL SERVER
+
+
+If you just want to run locally and test your frontend just in your own machine:
+
+$ python manage.py runserver
+
+it will run the server on this address:
+
+http://localhost:8000 (generally, it will show for you the right host and port)
+
+If you would like to see in other devices or machines in your network
+
+$ python manage.py 0.0.0.0:9090 (you can choose any port that you want, to avoid conflicts for example)
+
+note this address because you will need it to config the backend address on the frontend .env file
+
+
+INSTALL AND RUN THE FRONTEND API
+
+1 INSTALL DEPENDENCIES 
+
+run the following command in the frontend root folder
+
+$ npm install
+
+now you need to change the backend address on the .env (frontend root folder) file:
+
+REACT_APP_BACKEND_URL="http://localhost:9090" this is the default value, but
+
+if you want to run the front end in other devices in your network  you need to change it
+to the new address generated on step 2 of the backend setup.
+
+to run the frontend server you just need to run the following command:
+
+$ npm start
+
+it will show you the frontend address.
+
+this app was made with the mobile-first approach, so, you should test it on a smartphone to see how it is
+
+Thank you!
+
+
+
+
+
+
