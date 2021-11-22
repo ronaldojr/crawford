@@ -88,6 +88,15 @@ this app was made with the mobile-first approach, so, you should test it on a sm
 Thank you!
 
 
+++++++++++++++++++++++++++++++
+
+you can access de admin area of django for debugs purposes by your browser:
+
+http:localhost:9090/admin and loggin with the same credentials 
+
+there you can add new users (remember to add the admin status to this user)
+
+
 
 
 
