@@ -1,5 +1,3 @@
-import os
-from PIL import Image, ImageDraw, ImageOps, ImageFont
 from django.http.response import HttpResponse
 from rest_framework import viewsets
 from django.db.models import Count
@@ -11,7 +9,6 @@ from rest_framework import permissions, response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from backend.settings import BASE_DIR
-import textwrap
 
 
 @api_view(['GET'])
